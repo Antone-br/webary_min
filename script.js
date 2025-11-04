@@ -1,12 +1,2497 @@
-window.Webflow||=[],window.Webflow.push(()=>{gsap.config({nullTargetWarn:!1}),$(".section_achivement").each(function(){let e=$(this),t=e.find("[data-content-wrapper]"),o=e.find("[data-image-item='']").hide(),n=e.find("[data-image-item='2']").hide(),i=e.find(".achivement_slider-button-item").hide(),a=e.find("[data-dot-item]"),r=e.find("[data-slider]"),s=e.find("[data-arrow='']"),l=e.find("[data-arrow='left-hide']"),c=e.find("[data-arrow='right-hide']"),f=e.find("[data-dot-list]"),d=e.find(".home-slider_heading"),h=e.find("[data-trigger-wrapper]"),u=e.find("[data-content-top='']"),m=o.length,p=0,g=0,v=0,y=0,_=0,b;function w(t,r){if(t===p)return;let s=o.eq(p),l=o.eq(t),c=n.eq(p),f=n.eq(t),d=i.eq(p),h=i.eq(t);gsap.to(a.find(".slider_dot_line"),{scaleX:0,duration:.3}),gsap.to(a.eq(t).find(".slider_dot_line"),{scaleX:1,duration:.3}),o.hide(),s.css("display","flex"),l.css("display","flex"),n.hide(),c.css("display","flex"),f.css("display","flex"),i.hide(),d.css("display","flex"),h.css("display","flex");let u=e.find(".achivement_slider-collection-list").eq(0);u.find(".achivement_slider-collection-item").removeClass("active");let m=u.find(".achivement_slider-collection-item").eq(t).addClass("active"),g=m.find(".achivement_slider-heading");if(g.length){let v=g.text();g.html(v.split("").map(e=>`<span class="char">${e}</span>`).join("")),gsap.fromTo(g.find(".char"),{y:60,opacity:0},{y:0,opacity:1,duration:.7,stagger:{amount:.4},ease:"power2.out"})}let y=e.find(".achivement_slider-collection-list").eq(1);y.find(".achivement_slider-para-item").removeClass("active");let _=y.find(".achivement_slider-para-item").eq(t).addClass("active"),w=_.find(".achivement_slider-para");if(w.length){let E=w.text();w.html(E.split("").map(e=>`<span class="char">${e}</span>`).join("")),gsap.fromTo(w.find(".char"),{y:60,opacity:0},{y:0,opacity:1,duration:.7,stagger:{amount:.4},ease:"power2.out",delay:.3})}$(".achivement_slider-button-item").removeClass("active"),$(".achivement_slider-button-item").eq(t).addClass("active");let q=r?{next:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",prev:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"}:{next:"polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",prev:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"},W=r?{next:"polygon(0% 0%, 100% 0%, 130% 100%, 0% 100%)",prev:"polygon(100% 0%, 100% 0%, 100% 100%, 130% 100%)"}:{next:"polygon(0% 0%, 100% 0%, 100% 100%, -30% 100%)",prev:"polygon(0% 0%, 0% 0%, -30% 100%, 0% 100%)"},x=gsap.timeline({defaults:{duration:1,ease:"power2.inOut"}});h.css("display","flex"),d.css("display","flex"),gsap.set(h,{opacity:0,x:r?"-100%":"100%",y:0,clearProps:"transform,translate,rotate,filter,scale"}),gsap.set(d,{opacity:1,x:0,y:0,clearProps:"transform,translate,rotate,filter,scale"}),x.fromTo(l,{clipPath:q.next},{clipPath:W.next}),x.fromTo(s,{clipPath:q.prev},{clipPath:W.prev},"<"),x.fromTo(f,{clipPath:q.next},{clipPath:W.next},"<"),x.fromTo(c,{clipPath:q.prev},{clipPath:W.prev},"<"),x.fromTo(h,{opacity:0,x:r?"-50%":"50%"},{opacity:1,x:0,duration:1,y:"0%"},"<"),x.to(d,{opacity:0,x:r?"50%":"-50%",y:"0%",duration:1},"<"),x.fromTo(l.find(".home-slider_title .char"),{yPercent:r?100:-100},{yPercent:0,duration:.5,stagger:{amount:.5}},r?"<50%":"<"),p=t,b.seek(`step${t}`)}n.hide().first().css("display","flex"),i.hide().first().css("display","flex"),o.first().css("display","flex"),$(".achivement_slider-collection-item").removeClass("active").first().addClass("active"),gsap.set(a.eq(0).find(".slider_dot_line"),{scaleX:1}),$(".achivement_slider-para-item").removeClass("active").first().addClass("active"),$(".achivement_slider-button-item").removeClass("active").first().addClass("active"),b=gsap.timeline({repeat:-1}),a.each((e,t)=>{b.addLabel(`step${e}`),b.to($(t).find(".home-slider_dot-line"),{scaleX:1,ease:"none",duration:8,onComplete:()=>w((e+1)%m,!0)})});let E=()=>window.innerWidth>=992,q=(e,t)=>{let o=t[0].getBoundingClientRect();return e.clientX>=o.left&&e.clientX<=o.right&&e.clientY>=o.top&&e.clientY<=o.bottom};t.on("click",function(e){if($(e.target).closest(".button, .navbar_menu-wrap, [data-dot-item]").length)return;let t=this.getBoundingClientRect(),o=e.clientX-t.left<t.width/2;w((p+(o?-1:1)+m)%m,!o)}),a.on("click",function(){let e=$(this).index();w(e,e>p)});let W=!1,x=!0;r.on("mousemove",function(e){if(!E())return;let t=r[0].getBoundingClientRect();y=e.clientX-t.left,_=e.clientY-t.top;let o=q(e,f),n=d.toArray().some(t=>q(e,$(t))),i=h.toArray().some(t=>q(e,$(t))),a=q(e,u);(W=o||n||i||a)?gsap.to(s,{opacity:0,duration:.3,ease:"power2.out"}):gsap.to(s,{opacity:1,duration:.3,ease:"power2.out"})}),r.on("mouseleave",()=>{E()&&(x=!1,gsap.to(s,{opacity:0,duration:.3,ease:"power2.out"}),gsap.to(l,{opacity:1,duration:.3,ease:"power2.out"}),gsap.to(c,{opacity:1,duration:.3,ease:"power2.out"}))}),r.on("mouseenter",function(e){if(!E())return;x=!0;let t=r[0].getBoundingClientRect();g=y=e.clientX-t.left,v=_=e.clientY-t.top,gsap.to(s,{opacity:1,duration:.3,ease:"power2.out"})}),d.on("mouseenter",()=>{gsap.to(s,{opacity:0,duration:.3,ease:"power2.out"})}),d.on("mouseleave",()=>{gsap.to(s,{opacity:1,duration:.3,ease:"power2.out"})}),$(window).on("resize",()=>{}),function e(){if(!E())return;g+=(y-g)*.1,v+=(_-v)*.1;let t=r[0].getBoundingClientRect(),o=g<t.width/2;if(W||!x){requestAnimationFrame(e);return}if(o){let n=s.width();s.css({left:`${g-n}px`,top:`${v}px`,transform:"translate(0, -50%) rotate(0deg)"}),gsap.to(l,{opacity:0,duration:.3}),gsap.to(c,{opacity:1,duration:.3})}else{let i=s.width();s.css({left:`${g+i}px`,top:`${v}px`,transform:"translate(-100%, -50%) rotate(180deg)"}),gsap.to(c,{opacity:0,duration:.3}),gsap.to(l,{opacity:1,duration:.3})}requestAnimationFrame(e)}()})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){function e(){if(window.innerWidth<=991)return;let e=document.querySelectorAll('[data-trigger-wrapper=""]');e.forEach(e=>{e._animationRunning=!1,e._isHovered=!1;let t=e.querySelectorAll('[data-text-state="rel"]'),o=e.querySelectorAll('[data-text-state="abs"]'),n=e.querySelectorAll('[data-icon-state="rel"]'),i=e.querySelectorAll('[data-icon-state="abs"]');function a(e,a){return[...n].includes(e)?a?"120%":0:[...i].includes(e)?a?"0%":"-120%":[...t].includes(e)?a?"120%":0:[...o].includes(e)?a?"0%":"-120%":void 0}gsap.set(t,{x:0}),gsap.set(n,{x:0,rotation:0}),gsap.set(o,{x:"-120%"}),gsap.set(i,{x:"-120%",rotation:45}),e.addEventListener("mouseenter",()=>{if(console.log("mouseenter"),e._isHovered=!0,e._animationRunning)return;e._animationRunning=!0;let r=gsap.timeline({onComplete(){if(e._animationRunning=!1,!e._isHovered){e._animationRunning=!0;let r=gsap.timeline({onComplete(){e._animationRunning=!1}});r.to([...o,...t,...n,...i],{x:e=>a(e,!1),duration:1,ease:"expo.inOut",stagger:{each:.04,from:"end"}}).to(n,{rotation:0,duration:.3,ease:"power2.in"},"-=0.16").to(i,{rotation:45,duration:.3,ease:"power2.in"},"-=0.16")}}});r.to(n,{rotation:45,duration:.3,ease:"power1.out"}),r.to([...o,...t,...n,...i],{x:e=>a(e,!0),duration:1,ease:"expo.out",stagger:{each:.04,from:"start"}})}),e.addEventListener("mouseleave",()=>{if(e._isHovered=!1,e._animationRunning)return;e._animationRunning=!0;let r=gsap.timeline({onComplete(){e._animationRunning=!1}});r.to([...o,...t,...n,...i],{x:e=>a(e,!1),duration:1,ease:"expo.inOut",stagger:{each:.04,from:"end"}}).to(n,{rotation:0,duration:.3,ease:"power2.in"},"-=0.16").to(i,{rotation:45,duration:.3,ease:"power2.in"},"-=0.16")})})}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",()=>setTimeout(e,100)):setTimeout(e,100)}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){document.querySelectorAll(".faq_item-wrapper").forEach(e=>{e.addEventListener("click",function(){let e=this.querySelectorAll(".faq_radial");e.forEach(e=>{if("true"===e.dataset.animating)return;let t=+(e.dataset.animCount||0);t++,e.dataset.animCount=t,e.dataset.animating="true",e.classList.contains("is-top-left")&&(t%2==1?e.style.setProperty("--faqAnimLeft","radialLeft 2s linear forwards"):e.style.setProperty("--faqAnimLeft","radialLeftReverse 2s linear forwards"),e.addEventListener("animationend",()=>{e.dataset.animating="false"},{once:!0})),e.classList.contains("is-bottom-right")&&(t%2==1?e.style.setProperty("--faqAnimRight","radialRight 2s linear forwards"):e.style.setProperty("--faqAnimRight","radialRightReverse 2s linear forwards"),e.addEventListener("animationend",()=>{e.dataset.animating="false"},{once:!0}))})})})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".faq_item-wrapper");e.forEach(e=>{let t=e.querySelector(".faq_answer-wrapper");e.addEventListener("click",()=>{e.classList.contains("active")?(t.style.height=t.scrollHeight+"px",requestAnimationFrame(()=>{t.style.height="0px"}),e.classList.remove("active"),t.addEventListener("transitionend",function e(){t.style.removeProperty("height"),t.removeEventListener("transitionend",e)})):(t.style.height="0px",e.classList.add("active"),requestAnimationFrame(()=>{t.style.height=t.scrollHeight+"px"}),t.addEventListener("transitionend",function o(){e.classList.contains("active")&&(t.style.height="auto"),t.removeEventListener("transitionend",o)}))})})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelector(".navbar_container"),t=document.querySelector(".navbar_component"),o=document.querySelector(".navbar_container-wrapper"),n=window.scrollY,i=!1,a=0,r=!1;function s(){let s=window.scrollY,l=s<=0;if(e&&(l?e.classList.remove("scroll"):e.classList.add("scroll")),t&&(l?t.classList.remove("scroll"):t.classList.add("scroll")),o&&(l?o.classList.remove("scroll"):o.classList.add("scroll")),s>=1200&&t){let c=s-n;c>0?(a=0,r=!1,i||(t.style.top="-20%",i=!0)):c<0&&!r&&(a+=Math.abs(c))>=25&&i&&(t.style.top="0%",i=!1,a=0)}else t&&s<1200&&(t.style.top="",i=!1,a=0,r=!1);n=s}t&&(t.style.transition="top 0.6s ease-out"),document.addEventListener("click",function(e){let o=e.target.closest("[data-link-nav]");o&&t&&(t.style.top="-20%",i=!0,a=0,r=!0)}),window.addEventListener("scroll",s),s()}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){document.querySelectorAll(".navbar_link-wrapper").forEach(e=>{let t=e.querySelector(".navbar_navigation-arrow"),o=e.querySelector(".navbar_navigation-text-wrap");if(!t||!o)return;let n=!1,i=null,a=!1,r=!1,s=window.getComputedStyle(o).paddingRight;function l(){a=!0,r=!1,t.style.bottom="auto",t.style.right="0%",t.style.transform="rotate(0deg)",o.style.paddingRight="34px",setTimeout(()=>{a=!1,r&&(r=!1,c())},800)}function c(){a=!0,t.style.transform="rotate(0deg) translateX(200%)",i=setTimeout(()=>{n||(o.style.paddingRight=s,t.style.bottom="-100%",t.style.right="-35%",t.style.transform="rotate(90deg)"),setTimeout(()=>{a=!1,n&&l()},800),i=null},800)}t.style.position="absolute",t.style.bottom="-100%",t.style.right="-35%",t.style.transform="rotate(90deg)",t.style.transition="bottom 0.8s cubic-bezier(0.22, 1, 0.36, 1), right 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",o.style.transition="padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1)",e.addEventListener("mouseenter",()=>{if(n=!0,a){r=!1;return}l()}),e.addEventListener("mouseleave",()=>{if(n=!1,a){r=!0;return}c()})})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll("[data-marquee-logo]");if(e.length>0){let t=document.querySelector("#hero");if(t){let o=new IntersectionObserver(t=>{t.forEach(t=>{t.isIntersecting?e.forEach(e=>{e.style.animationPlayState="running"}):e.forEach(e=>{e.style.animationPlayState="paused"})})},{rootMargin:"0px",threshold:.1});o.observe(t)}else console.log("❌ \xc9l\xe9ment #hero non trouv\xe9")}else console.log("❌ Aucun \xe9l\xe9ment marquee trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".price_svg-gear-wrap");if(e.length>0){let t=!1,o=document.querySelector("#price");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.style.animationPlayState="running"}),t=!0):(e.forEach(e=>{e.style.animationPlayState="paused"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #price non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun engrenage trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll("[data-marquee-reviews]");if(e.length>0){let t=!1,o=document.querySelector("#reviews");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.style.animationPlayState="running"}),t=!0):(e.forEach(e=>{e.style.animationPlayState="paused"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #reviews non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun marquee de reviews trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){setTimeout(()=>{let e=document.querySelector("#achivement"),t=document.querySelector(".section_achivement");if(e&&t){let o=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?gsap.getTweensOf(t.querySelectorAll("*")).forEach(e=>{e.play()}):gsap.getTweensOf(t.querySelectorAll("*")).forEach(e=>{e.pause()})})},{rootMargin:"0px",threshold:.1});o.observe(e)}else console.log("❌ \xc9l\xe9ment #achivement ou .section_achivement non trouv\xe9")},500)}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".badge_radial.is-top-left, .badge_radial.is-bottom-right");e.length>0&&e.forEach(e=>{let t=new IntersectionObserver(t=>{t.forEach(t=>{var o,n;t.isIntersecting?((o=e).classList.remove("pause-animation"),o.offsetHeight):((n=e).style.setProperty("--animation-state","none"),n.querySelector("::before"),n.classList.add("pause-animation"))})},{rootMargin:"50px",threshold:0});t.observe(e)});let t=document.createElement("style");t.textContent=`
+// This file was generated by Slater.app - achivement_slider.js
+
+
+window.Webflow ||= [];
+window.Webflow.push(() => {
+  gsap.config({ nullTargetWarn: false });
+
+  $(".section_achivement").each(function () {
+    const $slider = $(this);
+
+    // ============================================
+    // SÉLECTEURS
+    // ============================================
+    const $contentWrapper = $slider.find("[data-content-wrapper]");
+    const $items = $slider.find("[data-image-item='']").hide();
+    const $itemsLogo = $slider.find("[data-image-item='2']").hide();
+    const $itemsButton = $slider.find(".achivement_slider-button-item").hide();
+    const $dots = $slider.find("[data-dot-item]");
+    const $homeSlider = $slider.find("[data-slider]");
+    const $arrow = $slider.find("[data-arrow='']");
+    const $arrowLeftHide = $slider.find("[data-arrow='left-hide']");
+    const $arrowRightHide = $slider.find("[data-arrow='right-hide']");
+    const $dotList = $slider.find("[data-dot-list]");
+    const $headings = $slider.find(".home-slider_heading");
+    const $triggerWrapper = $slider.find("[data-trigger-wrapper]");
+    const $contentTop = $slider.find("[data-content-top='']");
+
+    // ============================================
+    // VARIABLES
+    // ============================================
+    const totalSlides = $items.length;
+    let activeIndex = 0;
+    let currentX = 0,
+      currentY = 0,
+      targetX = 0,
+      targetY = 0;
+    let dotTimeline;
+
+    // ============================================
+    // INITIALISATION
+    // ============================================
+    $itemsLogo.hide().first().css('display', 'flex');
+    $itemsButton.hide().first().css('display', 'flex');
+    $items.first().css("display", "flex");
+    $('.achivement_slider-collection-item').removeClass('active').first().addClass(
+      'active');
+    gsap.set($dots.eq(0).find(".slider_dot_line"), { scaleX: 1 });
+    $('.achivement_slider-para-item').removeClass('active').first().addClass('active');
+    $('.achivement_slider-button-item').removeClass('active').first().addClass('active');
+
+    // ============================================
+    // TIMELINE DES POINTS
+    // ============================================
+    dotTimeline = gsap.timeline({ repeat: -1 });
+    $dots.each((index, dot) => {
+      dotTimeline.addLabel(`step${index}`);
+      dotTimeline.to($(dot).find(".home-slider_dot-line"), {
+        scaleX: 1,
+        ease: "none",
+        duration: 8,
+        onComplete: () => goToSlide((index + 1) % totalSlides, true),
+      });
+    });
+
+    // ============================================
+    // NAVIGATION VERS UN SLIDE
+    // ============================================
+    function goToSlide(nextIndex, forwards) {
+      if (nextIndex === activeIndex) return;
+
+      const $prevItem = $items.eq(activeIndex);
+      const $nextItem = $items.eq(nextIndex);
+      const $prevLogo = $itemsLogo.eq(activeIndex);
+      const $nextLogo = $itemsLogo.eq(nextIndex);
+      const $prevButton = $itemsButton.eq(activeIndex);
+      const $nextButton = $itemsButton.eq(nextIndex);
+
+      // Mettre à jour les points
+      gsap.to($dots.find(".slider_dot_line"), { scaleX: 0, duration: 0.3 });
+      gsap.to($dots.eq(nextIndex).find(".slider_dot_line"), { scaleX: 1, duration: 0.3 });
+
+      // Préparer l'affichage
+      $items.hide();
+      $prevItem.css("display", "flex");
+      $nextItem.css("display", "flex");
+
+      $itemsLogo.hide();
+      $prevLogo.css("display", "flex");
+      $nextLogo.css("display", "flex");
+
+      $itemsButton.hide();
+      $prevButton.css("display", "flex");
+      $nextButton.css("display", "flex");
+
+      // Activer l'élément et animer le titre
+      const $firstList = $slider.find('.achivement_slider-collection-list').eq(0);
+      $firstList.find('.achivement_slider-collection-item').removeClass('active');
+      const $activeItem = $firstList.find('.achivement_slider-collection-item').eq(
+        nextIndex).addClass('active');
+      const $activeTitle = $activeItem.find('.achivement_slider-heading');
+
+      if ($activeTitle.length) {
+        const text = $activeTitle.text();
+        $activeTitle.html(text.split('').map(char => `<span class="char">${char}</span>`)
+          .join(''));
+        gsap.fromTo($activeTitle.find('.char'), { y: 60, opacity: 0 }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: { amount: 0.4 },
+          ease: "power2.out"
+        });
+      }
+
+      // Deuxième liste : activer et animer le paragraphe
+      const $secondList = $slider.find('.achivement_slider-collection-list').eq(1);
+      $secondList.find('.achivement_slider-para-item').removeClass('active');
+      const $activeParaItem = $secondList.find('.achivement_slider-para-item').eq(nextIndex)
+        .addClass('active');
+      const $activePara = $activeParaItem.find('.achivement_slider-para');
+
+      if ($activePara.length) {
+        const paraText = $activePara.text();
+        $activePara.html(paraText.split('').map(char => `<span class="char">${char}</span>`)
+          .join(''));
+        gsap.fromTo($activePara.find('.char'), { y: 60, opacity: 0 }, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: { amount: 0.4 },
+          ease: "power2.out",
+          delay: 0.3
+        });
+      }
+
+      // Activer le bouton correspondant
+      $('.achivement_slider-button-item').removeClass('active');
+      $('.achivement_slider-button-item').eq(nextIndex).addClass('active');
+
+      // Définir les clip-paths
+      const clipPathFrom = forwards ? {
+        next: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+        prev: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      } : {
+        next: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+        prev: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      };
+
+      const clipPathTo = forwards ? {
+        next: "polygon(0% 0%, 100% 0%, 130% 100%, 0% 100%)",
+        prev: "polygon(100% 0%, 100% 0%, 100% 100%, 130% 100%)",
+      } : {
+        next: "polygon(0% 0%, 100% 0%, 100% 100%, -30% 100%)",
+        prev: "polygon(0% 0%, 0% 0%, -30% 100%, 0% 100%)",
+      };
+
+      // Timeline de transition
+      const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.inOut" } });
+
+      // Forcer la position de départ des boutons
+      $nextButton.css("display", "flex");
+      $prevButton.css("display", "flex");
+
+      gsap.set($nextButton, {
+        opacity: 0,
+        x: forwards ? "-100%" : "100%",
+        y: 0,
+        clearProps: "transform,translate,rotate,filter,scale"
+      });
+      gsap.set($prevButton, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        clearProps: "transform,translate,rotate,filter,scale"
+      });
+
+      tl.fromTo($nextItem, { clipPath: clipPathFrom.next }, { clipPath: clipPathTo.next });
+      tl.fromTo($prevItem, { clipPath: clipPathFrom.prev }, { clipPath: clipPathTo.prev },
+        "<");
+      tl.fromTo($nextLogo, { clipPath: clipPathFrom.next }, { clipPath: clipPathTo.next },
+        "<");
+      tl.fromTo($prevLogo, { clipPath: clipPathFrom.prev }, { clipPath: clipPathTo.prev },
+        "<");
+
+      tl.fromTo($nextButton, { opacity: 0, x: forwards ? "-50%" : "50%" }, {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          y: "0%"
+        },
+        "<"
+      );
+      tl.to($prevButton, { opacity: 0, x: forwards ? "50%" : "-50%", y: "0%", duration: 1 },
+        "<"
+      );
+
+      const titleFrom = forwards ? 100 : -100;
+      const titleDelay = forwards ? "<50%" : "<";
+      tl.fromTo($nextItem.find(
+          ".home-slider_title .char"), { yPercent: titleFrom }, {
+          yPercent: 0,
+          duration: 0.5,
+          stagger: { amount: 0.5 }
+        },
+        titleDelay
+      );
+
+      activeIndex = nextIndex;
+      dotTimeline.seek(`step${nextIndex}`);
+    }
+
+    // ============================================
+    // UTILITAIRES
+    // ============================================
+    const isDesktop = () => window.innerWidth >= 992;
+
+    const isCursorOver = (e, $element) => {
+      const rect = $element[0].getBoundingClientRect();
+      return e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom;
+    };
+
+    // ============================================
+    // ÉVÉNEMENTS
+    // ============================================
+    $contentWrapper.on("click", function (event) {
+      if ($(event.target).closest(".button, .navbar_menu-wrap, [data-dot-item]").length)
+        return;
+      const rect = this.getBoundingClientRect();
+      const isLeftSide = event.clientX - rect.left < rect.width / 2;
+      goToSlide((activeIndex + (isLeftSide ? -1 : 1) + totalSlides) % totalSlides, !
+        isLeftSide);
+    });
+
+    $dots.on("click", function () {
+      const dotIndex = $(this).index();
+      goToSlide(dotIndex, dotIndex > activeIndex);
+    });
+
+    // ============================================
+    // ANIMATION DE LA FLÈCHE
+    // ============================================
+    let isOverInteractiveElement = false;
+    let isInsideCard = true; // Initialiser à true pour afficher la flèche au chargement
+
+    function updateArrowPosition() {
+      if (!isDesktop()) {
+        return;
+      }
+
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
+
+      const rect = $homeSlider[0].getBoundingClientRect();
+      const isLeftSide = currentX < rect.width / 2;
+
+      // Si on survole un élément interactif, ne pas bouger la flèche
+      if (isOverInteractiveElement) {
+        requestAnimationFrame(updateArrowPosition);
+        return;
+      }
+
+      // Si on est en dehors de la card, ne pas changer les opacités
+      if (!isInsideCard) {
+        requestAnimationFrame(updateArrowPosition);
+        return;
+      }
+
+      if (isLeftSide) {
+        // Côté gauche - flèche normale
+        const arrowWidth = $arrow.width();
+        $arrow.css({
+          left: `${currentX - arrowWidth}px`,
+          top: `${currentY}px`,
+          transform: `translate(0, -50%) rotate(0deg)`,
+        });
+
+        // Cacher left-hide et afficher right-hide
+        gsap.to($arrowLeftHide, { opacity: 0, duration: 0.3 });
+        gsap.to($arrowRightHide, { opacity: 1, duration: 0.3 });
+      } else {
+        // Côté droit - flèche à 180°
+        const arrowWidth = $arrow.width();
+        $arrow.css({
+          left: `${currentX + arrowWidth}px`,
+          top: `${currentY}px`,
+          transform: `translate(-100%, -50%) rotate(180deg)`,
+        });
+
+        // Cacher right-hide et afficher left-hide
+        gsap.to($arrowRightHide, { opacity: 0, duration: 0.3 });
+        gsap.to($arrowLeftHide, { opacity: 1, duration: 0.3 });
+      }
+
+      requestAnimationFrame(updateArrowPosition);
+    }
+
+    $homeSlider.on("mousemove", function (e) {
+      if (!isDesktop()) return;
+
+      const rect = $homeSlider[0].getBoundingClientRect();
+      targetX = e.clientX - rect.left;
+      targetY = e.clientY - rect.top;
+
+      const isOverDotList = isCursorOver(e, $dotList);
+      const isOverHeadings = $headings.toArray().some((heading) => isCursorOver(e, $(
+        heading)));
+      const isOverTriggerWrapper = $triggerWrapper.toArray().some((trigger) =>
+        isCursorOver(e, $(trigger)));
+      const isOverContentTop = isCursorOver(e, $contentTop);
+
+      isOverInteractiveElement = isOverDotList || isOverHeadings ||
+        isOverTriggerWrapper || isOverContentTop;
+
+      if (isOverInteractiveElement) {
+        gsap.to($arrow, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      } else {
+        gsap.to($arrow, {
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
+    });
+
+    $homeSlider.on("mouseleave", () => {
+      if (!isDesktop()) return;
+
+      isInsideCard = false;
+
+      gsap.to($arrow, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+
+      gsap.to($arrowLeftHide, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+
+      gsap.to($arrowRightHide, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    $homeSlider.on("mouseenter", function (e) {
+      if (!isDesktop()) return;
+
+      isInsideCard = true;
+
+      const rect = $homeSlider[0].getBoundingClientRect();
+      currentX = targetX = e.clientX - rect.left;
+      currentY = targetY = e.clientY - rect.top;
+
+      // Réafficher $arrow quand on entre dans la card
+      gsap.to($arrow, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    $headings.on("mouseenter", () => {
+      gsap.to($arrow, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    $headings.on("mouseleave", () => {
+      gsap.to($arrow, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+
+    $(window).on("resize", () => {
+      // Ne rien faire
+    });
+
+    updateArrowPosition();
+  });
+});
+
+
+// This file was generated by Slater.app - component_btn.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+
+  function initializeGSAPAnimations() {
+    if (window.innerWidth <= 991) return;
+
+    const wrappers = document.querySelectorAll('[data-trigger-wrapper=""]');
+
+    wrappers.forEach(wrapper => {
+      wrapper._animationRunning = false;
+      wrapper._isHovered = false;
+
+      // Sélectionner les éléments relatifs et absolus pour texte et icônes
+      const relTextEls = wrapper.querySelectorAll('[data-text-state="rel"]');
+      const absTextEls = wrapper.querySelectorAll('[data-text-state="abs"]');
+      const relIconEls = wrapper.querySelectorAll('[data-icon-state="rel"]');
+      const absIconEls = wrapper.querySelectorAll('[data-icon-state="abs"]');
+
+      // Initialiser les propriétés GSAP au départ
+      gsap.set(relTextEls, { x: 0 });
+      gsap.set(relIconEls, { x: 0, rotation: 0 });
+      gsap.set(absTextEls, { x: "-120%" });
+      gsap.set(absIconEls, { x: "-120%", rotation: 45 });
+
+      function getXPosition(target, isEntering) {
+        // Calculer la position X selon l'élément et si on entre ou sort
+        if ([...relIconEls].includes(target)) return isEntering ? "120%" : 0;
+        if ([...absIconEls].includes(target)) return isEntering ? "0%" : "-120%";
+        if ([...relTextEls].includes(target)) return isEntering ? "120%" : 0;
+        if ([...absTextEls].includes(target)) return isEntering ? "0%" : "-120%";
+      }
+
+      wrapper.addEventListener("mouseenter", () => {
+        console.log("mouseenter");
+        wrapper._isHovered = true;
+        if (wrapper._animationRunning) return;
+        wrapper._animationRunning = true;
+
+        const tlIn = gsap.timeline({
+          onComplete: () => {
+            wrapper._animationRunning = false;
+            if (!wrapper._isHovered) {
+              wrapper._animationRunning = true;
+              const tlOut = gsap.timeline({
+                onComplete: () => { wrapper._animationRunning = false; }
+              });
+
+              tlOut.to([...absTextEls, ...relTextEls, ...relIconEls, ...
+                  absIconEls
+                ], {
+                  x: target => getXPosition(target, false),
+                  duration: 1,
+                  ease: "expo.inOut",
+                  stagger: { each: 0.04, from: "end" }
+                })
+                .to(relIconEls, { rotation: 0, duration: 0.3, ease: "power2.in" },
+                  "-=0.16")
+                .to(absIconEls, {
+                  rotation: 45,
+                  duration: 0.3,
+                  ease: "power2.in"
+                }, "-=0.16");
+            }
+          }
+        });
+
+        tlIn.to(relIconEls, {
+          rotation: 45,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+        tlIn.to([...absTextEls, ...relTextEls, ...relIconEls, ...absIconEls], {
+          x: target => getXPosition(target, true),
+          duration: 1,
+          ease: "expo.out",
+          stagger: { each: 0.04, from: "start" }
+        });
+      });
+
+      wrapper.addEventListener("mouseleave", () => {
+        wrapper._isHovered = false;
+        if (wrapper._animationRunning) return;
+        wrapper._animationRunning = true;
+
+        const tlOut = gsap.timeline({
+          onComplete: () => { wrapper._animationRunning = false; }
+        });
+
+        tlOut.to([...absTextEls, ...relTextEls, ...relIconEls, ...absIconEls], {
+            x: target => getXPosition(target, false),
+            duration: 1,
+            ease: "expo.inOut",
+            stagger: { each: 0.04, from: "end" }
+          })
+          .to(relIconEls, { rotation: 0, duration: 0.3, ease: "power2.in" }, "-=0.16")
+          .to(absIconEls, { rotation: 45, duration: 0.3, ease: "power2.in" }, "-=0.16");
+      });
+
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(initializeGSAPAnimations,
+      100));
+  } else {
+    setTimeout(initializeGSAPAnimations, 100);
+  }
+});
+
+
+// This file was generated by Slater.app - faq_dropdown.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  document.querySelectorAll('.faq_item-wrapper').forEach(item => {
+    item.addEventListener('click', function () {
+      const radials = this.querySelectorAll('.faq_radial');
+      radials.forEach(radial => {
+        // Flag JS pour ignorer si anim en cours
+        if (radial.dataset.animating === "true") return;
+
+        let count = +(radial.dataset.animCount || 0);
+        count++;
+        radial.dataset.animCount = count;
+        radial.dataset.animating = "true";
+
+        if (radial.classList.contains('is-top-left')) {
+          if (count % 2 === 1) {
+            radial.style.setProperty('--faqAnimLeft',
+              'radialLeft 2s linear forwards');
+          } else {
+            radial.style.setProperty('--faqAnimLeft',
+              'radialLeftReverse 2s linear forwards');
+          }
+          radial.addEventListener('animationend', () => {
+            radial.dataset.animating = "false";
+          }, { once: true });
+        }
+        if (radial.classList.contains('is-bottom-right')) {
+          if (count % 2 === 1) {
+            radial.style.setProperty('--faqAnimRight',
+              'radialRight 2s linear forwards');
+          } else {
+            radial.style.setProperty('--faqAnimRight',
+              'radialRightReverse 2s linear forwards');
+          }
+          radial.addEventListener('animationend', () => {
+            radial.dataset.animating = "false";
+          }, { once: true });
+        }
+      });
+    });
+  });
+});
+
+
+
+
+
+// This file was generated by Slater.app - faq_question.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+
+const items = document.querySelectorAll('.faq_item-wrapper');
+
+items.forEach(item => {
+  const answer = item.querySelector('.faq_answer-wrapper');
+
+  item.addEventListener('click', () => {
+    if (item.classList.contains('active')) {
+      // Animation fermeture
+      answer.style.height = answer.scrollHeight + 'px'; // remet temporairement la hauteur réelle pour transition
+      requestAnimationFrame(() => {
+        answer.style.height = '0px';
+      });
+      item.classList.remove('active');
+
+      answer.addEventListener('transitionend', function handler() {
+        answer.style.removeProperty('height');
+        answer.removeEventListener('transitionend', handler);
+      });
+
+    } else {
+      // Animation ouverture
+      answer.style.height = '0px'; // reset avant ouverture
+      item.classList.add('active');
+      requestAnimationFrame(() => {
+        answer.style.height = answer.scrollHeight + 'px';
+      });
+
+      answer.addEventListener('transitionend', function handler() {
+        if (item.classList.contains('active')) {
+          answer.style.height = 'auto';
+        }
+        answer.removeEventListener('transitionend', handler);
+      });
+    }
+  });
+});
+
+
+});
+
+// This file was generated by Slater.app - navbar_add-scrool.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  const navbarContainer = document.querySelector(".navbar_container");
+  const navbarComponent = document.querySelector(".navbar_component");
+  const navbarContainerWrapper = document.querySelector(".navbar_container-wrapper");
+
+  let lastScrollY = window.scrollY;
+  let navbarHidden = false;
+  let scrollAccumulator = 0;
+  let blockNavbarShow = false;
+
+  // Ajouter la transition au chargement
+  if (navbarComponent) {
+    navbarComponent.style.transition = "top 0.6s ease-out";
+  }
+
+  // Détecter le clic sur les éléments avec data-link-nav
+  document.addEventListener("click", function (e) {
+    const target = e.target.closest("[data-link-nav]");
+    if (target && navbarComponent) {
+      navbarComponent.style.top = "-20%";
+      navbarHidden = true;
+      scrollAccumulator = 0;
+      blockNavbarShow = true;
+    }
+  });
+
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+    const isAtTop = currentScrollY <= 0;
+    const isAt1200 = currentScrollY >= 1200;
+
+    // Gestion des classes scroll de base
+    if (navbarContainer) {
+      if (isAtTop) {
+        navbarContainer.classList.remove("scroll");
+      } else {
+        navbarContainer.classList.add("scroll");
+      }
+    }
+
+    if (navbarComponent) {
+      if (isAtTop) {
+        navbarComponent.classList.remove("scroll");
+      } else {
+        navbarComponent.classList.add("scroll");
+      }
+    }
+
+    // Logique pour navbar_container-wrapper sans scroll-3
+    if (navbarContainerWrapper) {
+      if (isAtTop) {
+        navbarContainerWrapper.classList.remove("scroll");
+      } else {
+        navbarContainerWrapper.classList.add("scroll");
+      }
+    }
+
+    // Logique pour navbar_component à partir de 1200px
+    if (isAt1200 && navbarComponent) {
+      const scrollDifference = currentScrollY - lastScrollY;
+
+      // Si on scroll vers le bas, réinitialiser l'accumulateur et cacher
+      if (scrollDifference > 0) {
+        scrollAccumulator = 0;
+        blockNavbarShow = false;
+        if (!navbarHidden) {
+          navbarComponent.style.top = "-20%";
+          navbarHidden = true;
+        }
+      }
+      // Si on scroll vers le haut
+      else if (scrollDifference < 0 && !blockNavbarShow) {
+        scrollAccumulator += Math.abs(scrollDifference);
+
+        // Si on a scrollé 25px ou plus vers le haut
+        if (scrollAccumulator >= 25 && navbarHidden) {
+          navbarComponent.style.top = "0%";
+          navbarHidden = false;
+          scrollAccumulator = 0;
+        }
+      }
+    } else if (navbarComponent && currentScrollY < 1200) {
+      // Réinitialiser si on est en dessous de 1200px
+      navbarComponent.style.top = "";
+      navbarHidden = false;
+      scrollAccumulator = 0;
+      blockNavbarShow = false;
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+
+// This file was generated by Slater.app - navbar_link.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+document.querySelectorAll('.navbar_link-wrapper').forEach(link => {
+  const arrow = link.querySelector('.navbar_navigation-arrow');
+  const text = link.querySelector('.navbar_navigation-text-wrap');
+  
+  // Vérifier que les éléments existent
+  if (!arrow || !text) return;
+  
+  // Variables de gestion d'état (propres à chaque lien)
+  let isHovered = false;
+  let animationTimeout = null;
+  let isAnimating = false;
+  let pendingLeave = false;
+  
+  // Sauvegarder le padding initial
+  const initialPadding = window.getComputedStyle(text).paddingRight;
+  
+  // État initial
+  arrow.style.position = 'absolute';
+  arrow.style.bottom = '-100%';
+  arrow.style.right = '-35%';
+  arrow.style.transform = 'rotate(90deg)';
+  arrow.style.transition =
+    'bottom 0.8s cubic-bezier(0.22, 1, 0.36, 1), right 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+  text.style.transition = 'padding-right 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+  
+  function startEnterAnimation() {
+    isAnimating = true;
+    pendingLeave = false;
+    
+    arrow.style.bottom = 'auto';
+    arrow.style.right = '0%';
+    arrow.style.transform = 'rotate(0deg)';
+    text.style.paddingRight = '34px';
+    
+    // Marquer la fin de l'animation
+    setTimeout(() => {
+      isAnimating = false;
+      
+      // Si l'utilisateur a hover out pendant l'animation, lancer l'animation de sortie
+      if (pendingLeave) {
+        pendingLeave = false;
+        startLeaveAnimation();
+      }
+    }, 800);
+  }
+  
+  function startLeaveAnimation() {
+    isAnimating = true;
+    
+    // D'abord translateX(200%)
+    arrow.style.transform = 'rotate(0deg) translateX(200%)';
+    
+    // Ensuite remettre le padding initial et repositionner la flèche
+    animationTimeout = setTimeout(() => {
+      if (!isHovered) {
+        text.style.paddingRight = initialPadding;
+        arrow.style.bottom = '-100%';
+        arrow.style.right = '-35%';
+        arrow.style.transform = 'rotate(90deg)';
+      }
+      
+      // Attendre la fin de toutes les transitions
+      setTimeout(() => {
+        isAnimating = false;
+        
+        // Si l'utilisateur a hover pendant l'animation, lancer l'animation d'entrée
+        if (isHovered) {
+          startEnterAnimation();
+        }
+      }, 800);
+      
+      animationTimeout = null;
+    }, 800);
+  }
+  
+  link.addEventListener('mouseenter', () => {
+    isHovered = true;
+    
+    // Si une animation est en cours, marquer qu'on veut entrer après
+    if (isAnimating) {
+      pendingLeave = false;
+      return;
+    }
+    
+    startEnterAnimation();
+  });
+  
+  link.addEventListener('mouseleave', () => {
+    isHovered = false;
+    
+    // Si une animation d'entrée est en cours, marquer qu'on veut sortir après
+    if (isAnimating) {
+      pendingLeave = true;
+      return;
+    }
+    
+    startLeaveAnimation();
+  });
+});
+});
+
+// This file was generated by Slater.app - pause_hero_marquee.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les éléments marquee
+  const marqueeElements = document.querySelectorAll('[data-marquee-logo]');
+
+  if (marqueeElements.length > 0) {
+    // console.log(`👀 ${marqueeElements.length} élément(s) marquee trouvé(s)`);
+
+    const heroElement = document.querySelector('#hero');
+
+    if (heroElement) {
+      // Configurer l'IntersectionObserver pour #hero
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // console.log('▶️ #hero est visible - Animation marquee reprend');
+
+            // Reprendre les animations
+            marqueeElements.forEach(element => {
+              element.style.animationPlayState = 'running';
+            });
+
+          } else {
+            // console.log('⏸️ #hero n\'est plus visible - Animation marquee en pause');
+
+            // Mettre en pause les animations
+            marqueeElements.forEach(element => {
+              element.style.animationPlayState = 'paused';
+            });
+          }
+        });
+      }, {
+        rootMargin: '0px',
+        threshold: 0.1
+      });
+
+      observer.observe(heroElement);
+      // console.log('👀 Observer activé pour #hero (marquee)');
+    } else {
+      console.log('❌ Élément #hero non trouvé');
+    }
+  } else {
+    console.log('❌ Aucun élément marquee trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - pause_price_gear.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les engrenages
+  const gears = document.querySelectorAll('.price_svg-gear-wrap');
+
+  if (gears.length > 0) {
+    // console.log(`⚙️ ${gears.length} engrenage(s) trouvé(s)`);
+
+    let isAnimating = false;
+
+    function pauseAnimations() {
+      // console.log('⏸️ #price n\'est plus visible - Animations des engrenages en pause');
+      gears.forEach(gear => {
+        gear.style.animationPlayState = 'paused';
+      });
+      isAnimating = false;
+    }
+
+    function resumeAnimations() {
+      // console.log('🎬 #price est visible - Animations des engrenages reprises');
+      gears.forEach(gear => {
+        gear.style.animationPlayState = 'running';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #price
+    const priceElement = document.querySelector('#price');
+
+    if (priceElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            resumeAnimations();
+          } else {
+            pauseAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(priceElement);
+      // console.log('👀 Observer activé pour #price (engrenages)');
+    } else {
+      console.log('❌ Élément #price non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      gears.forEach(gear => {
+        gear.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        gears.forEach(gear => {
+          gear.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun engrenage trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - pause_reviews_marquee.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les marquees de reviews
+  const marquees = document.querySelectorAll('[data-marquee-reviews]');
+
+  if (marquees.length > 0) {
+    // console.log(`👀 ${marquees.length} marquee(s) de reviews trouvé(s)`);
+
+    let isAnimating = false;
+
+    function pauseAnimations() {
+      // console.log('⏸️ #reviews n\'est plus visible - Animations marquee en pause');
+      marquees.forEach(marquee => {
+        marquee.style.animationPlayState = 'paused';
+      });
+      isAnimating = false;
+    }
+
+    function resumeAnimations() {
+      // console.log('🎬 #reviews est visible - Animations marquee reprises');
+      marquees.forEach(marquee => {
+        marquee.style.animationPlayState = 'running';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #reviews
+    const reviewsElement = document.querySelector('#reviews');
+
+    if (reviewsElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            resumeAnimations();
+          } else {
+            pauseAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(reviewsElement);
+      // console.log('👀 Observer activé pour #reviews (marquees)');
+    } else {
+      console.log('❌ Élément #reviews non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      marquees.forEach(marquee => {
+        marquee.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        marquees.forEach(marquee => {
+          marquee.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun marquee de reviews trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_achivement_slider.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Attendre que le slider soit initialisé
+  setTimeout(() => {
+    const achievementElement = document.querySelector('#achivement');
+    const sliderSection = document.querySelector('.section_achivement');
+
+    if (achievementElement && sliderSection) {
+      // console.log('👀 Section #achivement trouvée');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // console.log('▶️ #achivement est visible - Animations slider reprennent');
+
+            gsap.getTweensOf(sliderSection.querySelectorAll('*')).forEach(tween => {
+              tween.play();
+            });
+
+          } else {
+            // console.log('⏸️ #achivement n\'est plus visible - Mise en pause slider');
+
+            gsap.getTweensOf(sliderSection.querySelectorAll('*')).forEach(tween => {
+              tween.pause();
+            });
+          }
+        });
+      }, {
+        rootMargin: '0px',
+        threshold: 0.1
+      });
+
+      observer.observe(achievementElement);
+      // console.log('👀 Observer activé pour #achivement (slider pause uniquement)');
+    } else {
+      console.log('❌ Élément #achivement ou .section_achivement non trouvé');
+    }
+  }, 500);
+});
+
+
+// This file was generated by Slater.app - reset_component_badge.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+
+  function resetBadgeAnimation(badge) {
+    // console.log('🔄 Badge n\'est plus visible - Animation reset');
+    badge.style.setProperty('--animation-state', 'none');
+    const pseudoBefore = badge.querySelector('::before');
+
+    badge.classList.add('pause-animation');
+  }
+
+  // Fonction pour démarrer l'animation d'un badge
+  function startBadgeAnimation(badge) {
+    // console.log('🎬 Badge est visible - Animation démarrée');
+    badge.classList.remove('pause-animation');
+    // Force reflow
+    badge.offsetHeight;
+  }
+
+  // Sélectionner tous les badges radiaux
+  const badges = document.querySelectorAll(
+    '.badge_radial.is-top-left, .badge_radial.is-bottom-right');
+
+  if (badges.length > 0) {
+    // console.log(`👀 ${badges.length} badge(s) trouvé(s)`);
+
+    badges.forEach(badge => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startBadgeAnimation(badge);
+          } else {
+            resetBadgeAnimation(badge);
+          }
+        });
+      }, {
+        rootMargin: '50px',
+        threshold: 0
+      });
+
+      observer.observe(badge);
+    });
+  } else {
+    // console.log('❌ Aucun badge radial trouvé');
+  }
+
+  // Ajouter le style pour la pause
+  const style = document.createElement('style');
+  style.textContent = `
     .badge_radial.pause-animation.is-top-left::before {
       animation: none !important;
     }
     .badge_radial.pause-animation.is-bottom-right::before {
       animation: none !important;
     }
-  `,document.head.appendChild(t);let o;window.addEventListener("resize",()=>{clearTimeout(o),e.forEach(e=>{e.classList.add("pause-animation")}),o=setTimeout(()=>{e.forEach(e=>{e.classList.remove("pause-animation"),e.offsetHeight})},100)})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".btn_border");if(e.length>0){let t=document.createElement("style");t.textContent=`
+  `;
+  document.head.appendChild(style);
+
+  // Kill et restart les animations au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+
+    // Désactive temporairement toutes les animations
+    badges.forEach(badge => {
+      badge.classList.add('pause-animation');
+    });
+
+    // Restart après un court délai
+    resizeTimeout = setTimeout(() => {
+      badges.forEach(badge => {
+        badge.classList.remove('pause-animation');
+        badge.offsetHeight;
+      });
+    }, 100);
+  });
+});
+
+
+// This file was generated by Slater.app - reset_component_btn.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les boutons avec bordure animée
+  const btnBorders = document.querySelectorAll('.btn_border');
+
+  if (btnBorders.length > 0) {
+    // console.log(`👀 ${btnBorders.length} bouton(s) avec bordure animée trouvé(s)`);
+
+    const style = document.createElement('style');
+    style.textContent = `
       .btn_border.pause-animation::before {
         animation: none !important;
       }
-    `,document.head.appendChild(t),e.forEach(e=>{let t=new IntersectionObserver(t=>{t.forEach(t=>{t.isIntersecting?(e.classList.remove("pause-animation"),e.offsetHeight):(e.classList.add("pause-animation"),e.offsetHeight,e.classList.remove("pause-animation"),e.offsetHeight)})},{rootMargin:"50px",threshold:0});t.observe(e)})}let o;window.addEventListener("resize",()=>{clearTimeout(o),e.forEach(e=>{e.classList.add("pause-animation")}),o=setTimeout(()=>{e.forEach(e=>{e.classList.remove("pause-animation"),e.offsetHeight})},100)})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".comet-segment-1, .comet-segment-2, .comet-segment-3, .comet-segment-4");if(e.length>0){let t=!1,o=document.querySelector("#cta");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #cta non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun segment de com\xe8te trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=!1,t=document.querySelector("footer");if(t){let o=new IntersectionObserver(t=>{t.forEach(t=>{t.isIntersecting?function t(){let o=document.querySelectorAll(".footer_comet-1, .footer_comet-2, .footer_comet-3");o.forEach(e=>{e.offsetHeight,e.style.animation=""}),e=!0}():function t(){let o=document.querySelectorAll(".footer_comet-1, .footer_comet-2, .footer_comet-3");o.forEach(e=>{e.style.animation="none"}),e=!1}()})},{rootMargin:"0px"});o.observe(t)}let n;window.addEventListener("resize",()=>{clearTimeout(n);let e=document.querySelectorAll(".footer_comet-1, .footer_comet-2, .footer_comet-3");e.forEach(e=>{e.style.animation="none"}),n=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll('[cursor="conversion-cursor-wrapper"], [cursor="conversion-cursor-rotate"]');if(e.length>0){let t=!1,o=document.querySelector("#process");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #process non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun \xe9l\xe9ment de curseur trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll('[navigator^="bg-"], [navigator^="blue-"]'),t=document.querySelectorAll('[navigator="blue-1"] [navigator="arrow"], [navigator="blue-2"] [navigator="arrow"]'),o=[...e,...t];if(o.length>0){let n=!1,i=document.querySelector("#process");if(i){let a=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?(o.forEach(e=>{e.offsetHeight,e.style.animation=""}),n=!0):(o.forEach(e=>{e.style.animation="none"}),n=!1)})},{rootMargin:"100px"});a.observe(i)}else console.log("❌ \xc9l\xe9ment #process non trouv\xe9");let r;window.addEventListener("resize",()=>{clearTimeout(r),o.forEach(e=>{e.style.animation="none"}),r=setTimeout(()=>{o.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun \xe9l\xe9ment navigator trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".process_grid-palette-item");if(e.length>0){let t=!1,o=document.querySelector("#process");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #process non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun item de palette trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll('[class*="process_skeleton"]');if(e.length>0){let t=!1,o=document.querySelector("#process");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #process non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun \xe9l\xe9ment skeleton trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".process_grid-line, .process_grid-block.is-1, .process_grid-block.is-2, .process_grid-block.is-3, .process_grid-block.is-4, .process_grid-block.is-5, .process_grid-block.is-6, .process_grid-block.is-7, .process_grid-block.is-8"),t=document.querySelectorAll(".process_grid-block.is-6 rect"),o=[...e,...t];if(o.length>0){let n=!1,i=document.querySelector("#process");if(i){let a=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?(o.forEach(e=>{e.offsetHeight,e.style.animation=""}),n=!0):(o.forEach(e=>{e.style.animation="none"}),n=!1)})},{rootMargin:"100px"});a.observe(i)}else console.log("❌ \xc9l\xe9ment #process non trouv\xe9");let r;window.addEventListener("resize",()=>{clearTimeout(r),o.forEach(e=>{e.style.animation="none"}),r=setTimeout(()=>{o.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun \xe9l\xe9ment de grille process trouv\xe9")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll(".service_comet-light");if(e.length>0){let t=!1,o=document.querySelector("#service");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #service non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucune com\xe8te de service trouv\xe9e")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=document.querySelectorAll('[webflow-dash=""], [n8n-dash=""], [n8n-dash="reverse"], .process_bento-path, [compo-dash=""]');if(e.length>0){let t=!1,o=document.querySelector("#service");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{e.offsetHeight,e.style.animation=""}),t=!0):(e.forEach(e=>{e.style.animation="none"}),t=!1)})},{rootMargin:"100px"});n.observe(o)}else console.log("❌ \xc9l\xe9ment #service non trouv\xe9");let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{e.style.animation="none"}),i=setTimeout(()=>{e.forEach(e=>{e.style.animation=""})},100)})}else console.log("❌ Aucun \xe9l\xe9ment dash trouv\xe9 pour #service")}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){gsap.registerPlugin(MotionPathPlugin);let e=[".service_bento-glass-hotjar.is-devis",".service_bento-glass-hotjar.is-leads",".service_bento-glass-hotjar.is-interaction",".service_bento-glass-hotjar.is-visitor",".service_bento-glass-hotjar.is-money",".service_bento-glass-hotjar.is-devis-2",".service_bento-glass-hotjar.is-leads-2",".service_bento-glass-hotjar.is-interaction-2",".service_bento-glass-hotjar.is-visitor-2",".service_bento-glass-hotjar.is-money-2"],t=[".service_bento-glass-hotjar.is-devis.is-2",".service_bento-glass-hotjar.is-leads.is-2",".service_bento-glass-hotjar.is-interaction.is-2",".service_bento-glass-hotjar.is-visitor.is-2",".service_bento-glass-hotjar.is-money.is-2",".service_bento-glass-hotjar.is-devis-2.is-2",".service_bento-glass-hotjar.is-leads-2.is-2",".service_bento-glass-hotjar.is-interaction-2.is-2",".service_bento-glass-hotjar.is-visitor-2.is-2",".service_bento-glass-hotjar.is-money-2.is-2"],o=[],n=!1;function i(){o.forEach(e=>e.kill()),o=[];let i=window.innerWidth;i>=992?e.forEach((t,n)=>{let i=document.querySelectorAll(t);i.forEach(t=>{let i=n/e.length,a=gsap.to(t,{motionPath:{path:"#bento-path",align:"#bento-path",alignOrigin:[.5,.5],autoRotate:!1,start:i,end:i-1},rotation:0,duration:20,ease:"linear",repeat:-1,repeatDelay:0});o.push(a)})}):t.forEach((e,n)=>{let i=document.querySelectorAll(e);i.forEach(e=>{let i=n/t.length,a=gsap.to(e,{motionPath:{path:"#bento-path-2",align:"#bento-path-2",alignOrigin:[.5,.5],autoRotate:!1,start:i,end:i-1},rotation:0,duration:20,ease:"linear",repeat:-1,repeatDelay:0});o.push(a)})}),n=!0}let a=document.querySelector("#service");if(a){let r=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?n||(0===o.length?i():(o.forEach(e=>e.resume()),n=!0)):n&&(o.forEach(e=>e.pause()),n=!1)})},{rootMargin:"0px"});r.observe(a)}window.addEventListener("resize",()=>{n&&i()})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){gsap.registerPlugin(MotionPathPlugin);let e=["#conversion-path-1","#conversion-path-2","#conversion-path-3","#conversion-path-4"],t=0,o,n,i=!1,a=["gradient-fill-conversion","dashed-conversion-1","dashed-conversion-2","dashed-conversion-3","dashed-conversion-4","dashed-conversion-5","dashed-conversion-6","dashed-conversion-7","line-conversion-1","line-conversion-2","line-conversion-3","line-conversion-4","line-conversion-5","line-conversion-6","line-conversion-7"];function r(a){gsap.killTweensOf("#conversion-cursor");let s=e[a];o=gsap.to("#conversion-cursor",{motionPath:{path:s,align:s,alignOrigin:[.5,.5],autoRotate:!0},duration:4.625,ease:"cubic-bezier(0.6, 0.04, 0.98, 0.34)",onComplete(){i&&(n=setTimeout(()=>{r(t=(t+1)%e.length)},1500))}})}let s=document.querySelector("#service");if(s){let l=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?i||(i=!0,a.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none",t.offsetHeight,t.style.animation="")}),r(t=0)):i&&(i=!1,o&&o.kill(),clearTimeout(n),a.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),gsap.set("#conversion-cursor",{clearProps:"all"}),t=0)})},{rootMargin:"100px"});l.observe(s)}else console.log("❌ \xc9l\xe9ment #service non trouv\xe9 (curseur conversion)");let c;window.addEventListener("resize",()=>{clearTimeout(c),console.log("\uD83D\uDD04 Resize d\xe9tect\xe9 - Pause animations curseur"),a.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),c=setTimeout(()=>{console.log("▶️ Resize - Restart animations curseur"),a.forEach(e=>{let t=document.getElementById(e);t&&(t.offsetHeight,t.style.animation="")}),o&&o.kill(),clearTimeout(n),t=0,i&&r(t)},100)})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){let e=["gradient-fill-conversion","dashed-stroke-conversion","dashed-conversion-1","dashed-conversion-2","dashed-conversion-3","dashed-conversion-4","dashed-conversion-5","dashed-conversion-6","dashed-conversion-7","line-conversion-1","line-conversion-2","line-conversion-3","line-conversion-4","line-conversion-5","line-conversion-6","line-conversion-7"],t=!1,o=document.querySelector("#service");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?(e.forEach(e=>{let t=document.getElementById(e);t&&(t.offsetHeight,t.style.animation="")}),t=!0):(e.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),t=!1)})},{rootMargin:"0px"});n.observe(o)}let i;window.addEventListener("resize",()=>{clearTimeout(i),e.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),i=setTimeout(()=>{e.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="")})},100)})}),window.Webflow=window.Webflow||[],window.Webflow.push(function(){function e(){let e=window.innerWidth<992,t=e?"_tablet":"";return[`dashed-path-1${t}`,`dashed-corner-1${t}`,`dashed-path-2${t}`,`dashed-corner-2${t}`,`dashed-path-3${t}`,`dashed-corner-3${t}`,`dashed-path-4${t}`,`dashed-corner-4${t}`,`dashed-path-5${t}`,`dashed-corner-5${t}`,`dashed-path-6${t}`,`dashed-corner-6${t}`,`dashed-path-7${t}`,`line-path-9${t}`,`line-corner-8${t}`,`line-path-8${t}`,`line-corner-7${t}`,`line-path-7${t}`,`line-corner-6${t}`,`line-path-6${t}`,`line-corner-5${t}`,`line-path-5${t}`,`line-corner-4${t}`,`line-path-4${t}`,`line-corner-3${t}`,`line-path-3${t}`,`line-corner-2${t}`,`line-path-2${t}`,`line-corner-1${t}`,`line-path-1${t}`,`gradient-fill${t}`]}let t=!1,o=document.querySelector("#service");if(o){let n=new IntersectionObserver(o=>{o.forEach(o=>{o.isIntersecting?function o(){let n=e();n.forEach(e=>{let t=document.getElementById(e);t&&(t.offsetHeight,t.style.animation="")}),t=!0}():function o(){let n=e();n.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),t=!1}()})},{rootMargin:"0px"});n.observe(o)}let i;window.addEventListener("resize",()=>{clearTimeout(i);let t=e();t.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="none")}),i=setTimeout(()=>{let t=e();t.forEach(e=>{let t=document.getElementById(e);t&&(t.style.animation="")})},100)})});
+    `;
+    document.head.appendChild(style);
+
+    // Créer un observer pour chaque bouton
+    btnBorders.forEach(btn => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // console.log('🎬 Bouton est visible - Animation bordure démarrée');
+            btn.classList.remove('pause-animation');
+            // Force reflow
+            btn.offsetHeight;
+          } else {
+            // console.log('🔄 Bouton n\'est plus visible - Animation bordure reset');
+            btn.classList.add('pause-animation');
+            // Force reflow pour reset
+            btn.offsetHeight;
+            btn.classList.remove('pause-animation');
+            btn.offsetHeight;
+          }
+        });
+      }, {
+        rootMargin: '50px',
+        threshold: 0
+      });
+
+      observer.observe(btn);
+    });
+  } else {
+    // console.log('❌ Aucun bouton avec bordure animée trouvé');
+  }
+
+  // Kill et restart les animations au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+
+    // Désactive temporairement toutes les animations
+    btnBorders.forEach(btn => {
+      btn.classList.add('pause-animation');
+    });
+
+    // Restart après un court délai
+    resizeTimeout = setTimeout(() => {
+      btnBorders.forEach(btn => {
+        btn.classList.remove('pause-animation');
+        btn.offsetHeight;
+      });
+    }, 100);
+  });
+});
+
+
+// This file was generated by Slater.app - reset_cta_comet.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les segments de comète
+  const cometSegments = document.querySelectorAll(
+    '.comet-segment-1, .comet-segment-2, .comet-segment-3, .comet-segment-4'
+  );
+
+  if (cometSegments.length > 0) {
+    // console.log(`👀 ${cometSegments.length} segment(s) de comète trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #cta n\'est plus visible - Animations comètes reset');
+      cometSegments.forEach(segment => {
+        segment.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #cta est visible - Animations comètes démarrées');
+      cometSegments.forEach(segment => {
+        // Force reflow pour reset l'animation
+        segment.offsetHeight;
+        segment.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #cta
+    const ctaElement = document.querySelector('#cta');
+
+    if (ctaElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(ctaElement);
+      // console.log('👀 Observer activé pour #cta (comètes)');
+    } else {
+      console.log('❌ Élément #cta non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      cometSegments.forEach(segment => {
+        segment.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        cometSegments.forEach(segment => {
+          segment.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun segment de comète trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_footer_comet.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  let isAnimating = false;
+
+  function resetAnimations() {
+    const comets = document.querySelectorAll(
+      '.footer_comet-1, .footer_comet-2, .footer_comet-3');
+    comets.forEach(comet => {
+      comet.style.animation = 'none';
+    });
+    isAnimating = false;
+  }
+
+  function startAnimations() {
+    const comets = document.querySelectorAll(
+      '.footer_comet-1, .footer_comet-2, .footer_comet-3');
+    comets.forEach(comet => {
+      // Force reflow pour reset l'animation
+      comet.offsetHeight;
+      comet.style.animation = '';
+    });
+    isAnimating = true;
+  }
+
+  // Configurer l'IntersectionObserver pour le footer
+  const footerElement = document.querySelector('footer');
+
+  if (footerElement) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAnimations();
+        } else {
+          resetAnimations();
+        }
+      });
+    }, {
+      rootMargin: '0px'
+    });
+
+    observer.observe(footerElement);
+  }
+
+  // Kill et restart les animations au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+
+    const comets = document.querySelectorAll(
+      '.footer_comet-1, .footer_comet-2, .footer_comet-3');
+
+    // Désactive les animations
+    comets.forEach(comet => {
+      comet.style.animation = 'none';
+    });
+
+    // Restart après un court délai
+    resizeTimeout = setTimeout(() => {
+      comets.forEach(comet => {
+        comet.style.animation = '';
+      });
+    }, 100);
+  });
+});
+
+
+// This file was generated by Slater.app - reset_process_cursor-translate.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner les éléments du curseur de conversion
+  const cursorElements = document.querySelectorAll(
+    '[cursor="conversion-cursor-wrapper"], [cursor="conversion-cursor-rotate"]'
+  );
+
+  if (cursorElements.length > 0) {
+    // console.log(`👀 ${cursorElements.length} élément(s) de curseur trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #process n\'est plus visible - Animations curseur reset');
+      cursorElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #process est visible - Animations curseur démarrées');
+      cursorElements.forEach(element => {
+        // Force reflow pour reset l'animation
+        element.offsetHeight;
+        element.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #process
+    const processElement = document.querySelector('#process');
+
+    if (processElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(processElement);
+      // console.log('👀 Observer activé pour #process (curseur)');
+    } else {
+      console.log('❌ Élément #process non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      cursorElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        cursorElements.forEach(element => {
+          element.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun élément de curseur trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_process_navigator.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les éléments navigator
+  const navigatorElements = document.querySelectorAll(
+    '[navigator^="bg-"], [navigator^="blue-"]');
+
+  // Sélectionner aussi les flèches à l'intérieur des blue-1, blue-2, blue-3
+  const arrowElements = document.querySelectorAll(
+    '[navigator="blue-1"] [navigator="arrow"], [navigator="blue-2"] [navigator="arrow"]'
+  );
+
+  const allElements = [...navigatorElements, ...arrowElements];
+
+  if (allElements.length > 0) {
+    // console.log(`👀 ${allElements.length} élément(s) navigator trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #process n\'est plus visible - Animations navigator reset');
+      allElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #process est visible - Animations navigator démarrées');
+      allElements.forEach(element => {
+        // Force reflow pour reset l'animation
+        element.offsetHeight;
+        element.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #process
+    const processElement = document.querySelector('#process');
+
+    if (processElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(processElement);
+      // console.log('👀 Observer activé pour #process (navigator)');
+    } else {
+      console.log('❌ Élément #process non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      allElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        allElements.forEach(element => {
+          element.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun élément navigator trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_process_palette.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les items de palette
+  const paletteItems = document.querySelectorAll('.process_grid-palette-item');
+
+  if (paletteItems.length > 0) {
+    // console.log(`👀 ${paletteItems.length} item(s) de palette trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #process n\'est plus visible - Animations palette reset');
+      paletteItems.forEach(item => {
+        item.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #process est visible - Animations palette démarrées');
+      paletteItems.forEach(item => {
+        // Force reflow pour reset l'animation
+        item.offsetHeight;
+        item.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #process
+    const processElement = document.querySelector('#process');
+
+    if (processElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(processElement);
+      // console.log('👀 Observer activé pour #process (palette)');
+    } else {
+      console.log('❌ Élément #process non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      paletteItems.forEach(item => {
+        item.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        paletteItems.forEach(item => {
+          item.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun item de palette trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_process_paper.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les éléments skeleton
+  const skeletonElements = document.querySelectorAll('[class*="process_skeleton"]');
+
+  if (skeletonElements.length > 0) {
+    // console.log(`👀 ${skeletonElements.length} élément(s) skeleton trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #process n\'est plus visible - Animations skeleton reset');
+      skeletonElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #process est visible - Animations skeleton démarrées');
+      skeletonElements.forEach(element => {
+        // Force reflow pour reset l'animation
+        element.offsetHeight;
+        element.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #process
+    const processElement = document.querySelector('#process');
+
+    if (processElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(processElement);
+      // console.log('👀 Observer activé pour #process (skeleton)');
+    } else {
+      console.log('❌ Élément #process non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      skeletonElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        skeletonElements.forEach(element => {
+          element.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun élément skeleton trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_process_screen.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les éléments animés de la grille process
+  const processGridElements = document.querySelectorAll(
+    '.process_grid-line, .process_grid-block.is-1, .process_grid-block.is-2, .process_grid-block.is-3, .process_grid-block.is-4, .process_grid-block.is-5, .process_grid-block.is-6, .process_grid-block.is-7, .process_grid-block.is-8'
+  );
+
+  // Sélectionner aussi les rect à l'intérieur de is-6 pour l'animation stroke
+  const processGridRects = document.querySelectorAll('.process_grid-block.is-6 rect');
+
+  const allElements = [...processGridElements, ...processGridRects];
+
+  if (allElements.length > 0) {
+    // console.log(`👀 ${allElements.length} élément(s) de grille process trouvé(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #process n\'est plus visible - Animations grille reset');
+      allElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #process est visible - Animations grille démarrées');
+      allElements.forEach(element => {
+        // Force reflow pour reset l'animation
+        element.offsetHeight;
+        element.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #process
+    const processElement = document.querySelector('#process');
+
+    if (processElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(processElement);
+      // console.log('👀 Observer activé pour #process (grille)');
+    } else {
+      console.log('❌ Élément #process non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      allElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        allElements.forEach(element => {
+          element.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun élément de grille process trouvé');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_service_comet.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner toutes les comètes de service
+  const serviceComets = document.querySelectorAll('.service_comet-light');
+
+  if (serviceComets.length > 0) {
+    // console.log(`👀 ${serviceComets.length} comète(s) de service trouvée(s)`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #service n\'est plus visible - Animations comètes service reset');
+      serviceComets.forEach(comet => {
+        comet.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #service est visible - Animations comètes service démarrées');
+      serviceComets.forEach(comet => {
+        // Force reflow pour reset l'animation
+        comet.offsetHeight;
+        comet.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #service
+    const serviceElement = document.querySelector('#service');
+
+    if (serviceElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(serviceElement);
+      // console.log('👀 Observer activé pour #service (comètes service)');
+    } else {
+      console.log('❌ Élément #service non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      serviceComets.forEach(comet => {
+        comet.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        serviceComets.forEach(comet => {
+          comet.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucune comète de service trouvée');
+  }
+});
+
+
+// This file was generated by Slater.app - reset_service_dash.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Sélectionner tous les éléments avec animations dash pour #service
+  const serviceDashElements = document.querySelectorAll(
+    '[webflow-dash=""], [n8n-dash=""], [n8n-dash="reverse"], .process_bento-path, [compo-dash=""]'
+  );
+
+  if (serviceDashElements.length > 0) {
+    // console.log(`👀 ${serviceDashElements.length} élément(s) dash trouvé(s) pour #service`);
+
+    let isAnimating = false;
+
+    function resetAnimations() {
+      // console.log('🔄 #service n\'est plus visible - Animations dash reset');
+      serviceDashElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+      isAnimating = false;
+    }
+
+    function startAnimations() {
+      // console.log('🎬 #service est visible - Animations dash démarrées');
+      serviceDashElements.forEach(element => {
+        // Force reflow pour reset l'animation
+        element.offsetHeight;
+        element.style.animation = '';
+      });
+      isAnimating = true;
+    }
+
+    // Configurer l'IntersectionObserver pour #service
+    const serviceElement = document.querySelector('#service');
+
+    if (serviceElement) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          } else {
+            resetAnimations();
+          }
+        });
+      }, {
+        rootMargin: '100px'
+      });
+
+      observer.observe(serviceElement);
+      // console.log('👀 Observer activé pour #service (tous les dash)');
+    } else {
+      console.log('❌ Élément #service non trouvé');
+    }
+
+    // Kill et restart les animations au resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+
+      // Désactive les animations
+      serviceDashElements.forEach(element => {
+        element.style.animation = 'none';
+      });
+
+      // Restart après un court délai
+      resizeTimeout = setTimeout(() => {
+        serviceDashElements.forEach(element => {
+          element.style.animation = '';
+        });
+      }, 100);
+    });
+  } else {
+    console.log('❌ Aucun élément dash trouvé pour #service');
+  }
+});
+
+
+// This file was generated by Slater.app - service_bubble-hotjar-anim.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  gsap.registerPlugin(MotionPathPlugin);
+
+  const selectorsGroup1 = [
+    '.service_bento-glass-hotjar.is-devis',
+    '.service_bento-glass-hotjar.is-leads',
+    '.service_bento-glass-hotjar.is-interaction',
+    '.service_bento-glass-hotjar.is-visitor',
+    '.service_bento-glass-hotjar.is-money',
+    '.service_bento-glass-hotjar.is-devis-2',
+    '.service_bento-glass-hotjar.is-leads-2',
+    '.service_bento-glass-hotjar.is-interaction-2',
+    '.service_bento-glass-hotjar.is-visitor-2',
+    '.service_bento-glass-hotjar.is-money-2'
+  ];
+
+  const selectorsGroup2 = [
+    '.service_bento-glass-hotjar.is-devis.is-2',
+    '.service_bento-glass-hotjar.is-leads.is-2',
+    '.service_bento-glass-hotjar.is-interaction.is-2',
+    '.service_bento-glass-hotjar.is-visitor.is-2',
+    '.service_bento-glass-hotjar.is-money.is-2',
+    '.service_bento-glass-hotjar.is-devis-2.is-2',
+    '.service_bento-glass-hotjar.is-leads-2.is-2',
+    '.service_bento-glass-hotjar.is-interaction-2.is-2',
+    '.service_bento-glass-hotjar.is-visitor-2.is-2',
+    '.service_bento-glass-hotjar.is-money-2.is-2'
+  ];
+
+  const animDuration = 20;
+  let cursorTweens = [];
+  let isAnimating = false;
+
+  function createAnimations() {
+    // Tuer les animations existantes
+    cursorTweens.forEach(tw => tw.kill());
+    cursorTweens = [];
+
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 992) {
+      // Animer le premier groupe
+      selectorsGroup1.forEach((sel, i) => {
+        const els = document.querySelectorAll(sel);
+        els.forEach(el => {
+          const startPos = i / selectorsGroup1.length;
+          const tween = gsap.to(el, {
+            motionPath: {
+              path: "#bento-path",
+              align: "#bento-path",
+              alignOrigin: [0.5, 0.5],
+              autoRotate: false,
+              start: startPos,
+              end: startPos - 1
+            },
+            rotation: 0,
+            duration: animDuration,
+            ease: "linear",
+            repeat: -1,
+            repeatDelay: 0
+          });
+          cursorTweens.push(tween);
+        });
+      });
+    } else {
+      // Animer le second groupe
+      selectorsGroup2.forEach((sel, i) => {
+        const els = document.querySelectorAll(sel);
+        els.forEach(el => {
+          const startPos = i / selectorsGroup2.length;
+          const tween = gsap.to(el, {
+            motionPath: {
+              path: "#bento-path-2",
+              align: "#bento-path-2",
+              alignOrigin: [0.5, 0.5],
+              autoRotate: false,
+              start: startPos,
+              end: startPos - 1
+            },
+            rotation: 0,
+            duration: animDuration,
+            ease: "linear",
+            repeat: -1,
+            repeatDelay: 0
+          });
+          cursorTweens.push(tween);
+        });
+      });
+    }
+
+    isAnimating = true;
+  }
+
+  function stopAnimations() {
+    cursorTweens.forEach(tw => tw.pause());
+    isAnimating = false;
+  }
+
+  function resumeAnimations() {
+    cursorTweens.forEach(tw => tw.resume());
+    isAnimating = true;
+  }
+
+  // Configurer l'IntersectionObserver
+  const serviceElement = document.querySelector('#service');
+
+  if (serviceElement) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // console.log('🎬 #service est visible - Animation démarrée');
+          if (!isAnimating) {
+            if (cursorTweens.length === 0) {
+              createAnimations();
+            } else {
+              resumeAnimations();
+            }
+          }
+        } else {
+          // console.log('⏸️ #service n\'est plus visible - Animation en pause');
+          if (isAnimating) {
+            stopAnimations();
+          }
+        }
+      });
+    }, {
+      rootMargin: '0px' // Démarre l'animation 100px avant que l'élément soit visible
+    });
+
+    observer.observe(serviceElement);
+  }
+
+  // Recréer les animations au redimensionnement
+  window.addEventListener('resize', () => {
+    if (isAnimating) {
+      createAnimations();
+    }
+  });
+});
+
+
+// This file was generated by Slater.app - service_conversion-graph.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  gsap.registerPlugin(MotionPathPlugin);
+
+  const paths = [
+    "#conversion-path-1",
+    "#conversion-path-2",
+    "#conversion-path-3",
+    "#conversion-path-4"
+  ];
+
+  const totalCssDuration = 24.5; // Durée totale du cycle CSS
+  const pathDuration = totalCssDuration / 4; // ~6.125s par path
+  const animDuration = 4.625; // Durée de l'animation
+  const waitDuration = 1.5; // Durée d'attente
+
+  let currentIndex = 0;
+  let cursorTween;
+  let waitingTimeout;
+  let isAnimating = false;
+
+  const animatedElements = [
+    'gradient-fill-conversion',
+    'dashed-conversion-1',
+    'dashed-conversion-2',
+    'dashed-conversion-3',
+    'dashed-conversion-4',
+    'dashed-conversion-5',
+    'dashed-conversion-6',
+    'dashed-conversion-7',
+    'line-conversion-1',
+    'line-conversion-2',
+    'line-conversion-3',
+    'line-conversion-4',
+    'line-conversion-5',
+    'line-conversion-6',
+    'line-conversion-7'
+  ];
+
+  function animateCursorOnPath(index) {
+    gsap.killTweensOf("#conversion-cursor");
+    const path = paths[index];
+
+    cursorTween = gsap.to("#conversion-cursor", {
+      motionPath: {
+        path: path,
+        align: path,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: true
+      },
+      duration: animDuration,
+      ease: "cubic-bezier(0.6, 0.04, 0.98, 0.34)",
+      onComplete: () => {
+        if (isAnimating) {
+          waitingTimeout = setTimeout(() => {
+            currentIndex = (currentIndex + 1) % paths.length;
+            animateCursorOnPath(currentIndex);
+          }, waitDuration * 1000);
+        }
+      }
+    });
+  }
+
+  function startAnim() {
+    if (!isAnimating) {
+      // console.log('🎬 #service est visible - Animation curseur démarrée');
+      isAnimating = true;
+
+      // Reset et démarre les animations CSS
+      animatedElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          // Force le reset
+          el.style.animation = 'none';
+          void el.offsetHeight; // Force reflow
+          el.style.animation = '';
+        }
+      });
+
+      // Reset l'index et démarre GSAP
+      currentIndex = 0;
+      animateCursorOnPath(currentIndex);
+    }
+  }
+
+  function stopAnim() {
+    if (isAnimating) {
+      // console.log('🔄 #service n\'est plus visible - Animation curseur reset');
+      isAnimating = false;
+
+      // Kill l'animation GSAP
+      if (cursorTween) cursorTween.kill();
+      clearTimeout(waitingTimeout);
+
+      // Reset les animations CSS
+      animatedElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.animation = 'none';
+        }
+      });
+
+      // Reset le curseur à la position initiale
+      gsap.set("#conversion-cursor", { clearProps: "all" });
+
+      // Reset l'index
+      currentIndex = 0;
+    }
+  }
+
+  function restartAnim() {
+    // console.log('🔄 Resize - Restart animations curseur');
+    if (cursorTween) cursorTween.kill();
+    clearTimeout(waitingTimeout);
+    currentIndex = 0;
+    if (isAnimating) {
+      animateCursorOnPath(currentIndex);
+    }
+  }
+
+  // Configurer l'IntersectionObserver
+  const serviceElement = document.querySelector('#service');
+
+  if (serviceElement) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAnim();
+        } else {
+          stopAnim();
+        }
+      });
+    }, {
+      rootMargin: '100px'
+    });
+
+    observer.observe(serviceElement);
+    // console.log('👀 Observer activé pour #service (curseur conversion)');
+  } else {
+    console.log('❌ Élément #service non trouvé (curseur conversion)');
+  }
+
+  // Kill et restart les animations au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+
+    console.log('🔄 Resize détecté - Pause animations curseur');
+
+    // Désactive les animations CSS
+    animatedElements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.animation = 'none';
+      }
+    });
+
+    // Restart après un court délai
+    resizeTimeout = setTimeout(() => {
+      console.log('▶️ Resize - Restart animations curseur');
+
+      // Restart animations CSS
+      animatedElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          void el.offsetHeight;
+          el.style.animation = '';
+        }
+      });
+
+      // Restart animation GSAP
+      restartAnim();
+    }, 100);
+  });
+});
+
+// window.Webflow = window.Webflow || [];
+// window.Webflow.push(function () {
+//   gsap.registerPlugin(MotionPathPlugin);
+
+//   const paths = [
+//     "#conversion-path-1",
+//     "#conversion-path-2",
+//     "#conversion-path-3",
+//     "#conversion-path-4"
+//   ];
+
+//   const totalCssDuration = 24.5; // Durée totale du cycle CSS
+//   const pathDuration = totalCssDuration / 4; // ~6.125s par path
+//   const animDuration = 4.625; // Durée de l'animation
+//   const waitDuration = 1.5; // Durée d'attente
+
+//   let currentIndex = 0;
+//   let cursorTween;
+//   let waitingTimeout;
+
+//   function animateCursorOnPath(index) {
+//     gsap.killTweensOf("#conversion-cursor");
+//     const path = paths[index];
+
+//     cursorTween = gsap.to("#conversion-cursor", {
+//       motionPath: {
+//         path: path,
+//         align: path,
+//         alignOrigin: [0.5, 0.5],
+//         autoRotate: true
+//       },
+//       duration: animDuration,
+//       ease: "cubic-bezier(0.6, 0.04, 0.98, 0.34)", // Même easing que CSS
+//       onComplete: () => {
+//         waitingTimeout = setTimeout(() => {
+//           currentIndex = (currentIndex + 1) % paths.length;
+//           animateCursorOnPath(currentIndex);
+//         }, waitDuration * 1000);
+//       }
+//     });
+//   }
+
+//   function restartAnim() {
+//     if (cursorTween) cursorTween.kill();
+//     clearTimeout(waitingTimeout);
+//     animateCursorOnPath(currentIndex = 0);
+//   }
+
+//   animateCursorOnPath(currentIndex);
+
+//   let resizeTimeout;
+//   window.addEventListener('resize', () => {
+//     clearTimeout(resizeTimeout);
+//     resizeTimeout = setTimeout(restartAnim, 100);
+//   });
+// });
+
+
+// This file was generated by Slater.app - service_conversion-rm-resize.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  const animatedElements = [
+    'gradient-fill-conversion',
+    'dashed-stroke-conversion',
+    'dashed-conversion-1',
+    'dashed-conversion-2',
+    'dashed-conversion-3',
+    'dashed-conversion-4',
+    'dashed-conversion-5',
+    'dashed-conversion-6',
+    'dashed-conversion-7',
+    'line-conversion-1',
+    'line-conversion-2',
+    'line-conversion-3',
+    'line-conversion-4',
+    'line-conversion-5',
+    'line-conversion-6',
+    'line-conversion-7'
+  ];
+  
+  let isAnimating = false;
+  
+  function pauseAnimations() {
+    animatedElements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.animation = 'none';
+      }
+    });
+    isAnimating = false;
+  }
+  
+  function resumeAnimations() {
+    animatedElements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        // Force reflow pour reset l'animation
+        el.offsetHeight;
+        el.style.animation = '';
+      }
+    });
+    isAnimating = true;
+  }
+  
+  // Configurer l'IntersectionObserver
+  const serviceElement = document.querySelector('#service');
+  
+  if (serviceElement) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          resumeAnimations();
+        } else {
+          pauseAnimations();
+        }
+      });
+    }, {
+      rootMargin: '0px'
+    });
+    
+    observer.observe(serviceElement);
+  }
+  
+  // Kill et restart les animations CSS au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    
+    // Désactive les animations
+    animatedElements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.animation = 'none';
+      }
+    });
+    
+    // Restart après un court délai
+    resizeTimeout = setTimeout(() => {
+      animatedElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.animation = '';
+        }
+      });
+    }, 100);
+  });
+});
+
+// This file was generated by Slater.app - service_hotjar-rm-resize.js
+
+
+window.Webflow = window.Webflow || [];
+window.Webflow.push(function () {
+  // Fonction pour obtenir les bons IDs selon la largeur d'écran
+  function getAnimatedElements() {
+    const isTablet = window.innerWidth < 992;
+    const suffix = isTablet ? '_tablet' : '';
+
+    return [
+      // Chemins pointillés
+      `dashed-path-1${suffix}`,
+      `dashed-corner-1${suffix}`,
+      `dashed-path-2${suffix}`,
+      `dashed-corner-2${suffix}`,
+      `dashed-path-3${suffix}`,
+      `dashed-corner-3${suffix}`,
+      `dashed-path-4${suffix}`,
+      `dashed-corner-4${suffix}`,
+      `dashed-path-5${suffix}`,
+      `dashed-corner-5${suffix}`,
+      `dashed-path-6${suffix}`,
+      `dashed-corner-6${suffix}`,
+      `dashed-path-7${suffix}`,
+      // Chemins pleins
+      `line-path-9${suffix}`,
+      `line-corner-8${suffix}`,
+      `line-path-8${suffix}`,
+      `line-corner-7${suffix}`,
+      `line-path-7${suffix}`,
+      `line-corner-6${suffix}`,
+      `line-path-6${suffix}`,
+      `line-corner-5${suffix}`,
+      `line-path-5${suffix}`,
+      `line-corner-4${suffix}`,
+      `line-path-4${suffix}`,
+      `line-corner-3${suffix}`,
+      `line-path-3${suffix}`,
+      `line-corner-2${suffix}`,
+      `line-path-2${suffix}`,
+      `line-corner-1${suffix}`,
+      `line-path-1${suffix}`,
+      // Remplissage principal (gradient) si animé via CSS
+      `gradient-fill${suffix}`
+    ];
+  }
+
+  let isAnimating = false;
+
+  function resetAnimations() {
+    const elements = getAnimatedElements();
+    elements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.animation = 'none';
+      }
+    });
+    isAnimating = false;
+  }
+
+  function startAnimations() {
+    const elements = getAnimatedElements();
+    elements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        // Force reflow pour reset l'animation
+        el.offsetHeight;
+        el.style.animation = '';
+      }
+    });
+    isAnimating = true;
+  }
+
+  // Configurer l'IntersectionObserver
+  const serviceElement = document.querySelector('#service');
+
+  if (serviceElement) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAnimations();
+        } else {
+          resetAnimations();
+        }
+      });
+    }, {
+      rootMargin: '0px'
+    });
+
+    observer.observe(serviceElement);
+  }
+
+  // Kill et restart les animations CSS au resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+
+    // Kill les animations CSS
+    const elements = getAnimatedElements();
+    elements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.animation = 'none';
+      }
+    });
+
+    // Relance les animations après un court délai
+    resizeTimeout = setTimeout(() => {
+      const elements = getAnimatedElements();
+      elements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.animation = '';
+        }
+      });
+    }, 100);
+  });
+});
+
+
